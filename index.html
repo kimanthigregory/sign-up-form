@@ -27,18 +27,26 @@
                 </button>
             </div>
             <form >
-                <input type="text" placeholder="First Name">
+                <div class="input-container">
+                    <input type="text" placeholder="First Name" class="input-field">
+                    <p class="error">First Name cannot be empty</p>    
+                </div>
+                <div class="input-container">
+                    <input type="text" placeholder="Last Name" class="input-field">
 
-                <p>First Name cannot be empty</p>
-                <input type="text" placeholder="Last Name">
+                    <p class="error">Last Name cannot be empty</p>    
+                </div>
+                <div class="input-container">
+                    <input type="email" placeholder="Email Address" class="input-field">
 
-                <p>Last Name cannot be empty</p>
-                <input type="email" placeholder="Email Address">
-
-                <p>Looks like this is not an email</p>
-                <input type="password" placeholder=" Password">
-                <p>password cannot be empty</p>
-                <input type="submit" value="CLAIM YOUR FREE TRIAL">
+                    <p class="error">Looks like this is not an email</p>    
+                </div>
+                <div class="input-container">
+                    <input type="password" placeholder=" Password"class="input-field">
+                    <p class="error">password cannot be empty</p>
+    
+                </div>
+                <input type="submit" value="CLAIM YOUR FREE TRIAL" id="submit">
                 <p class="Terms">
                     By clicking the button, you are agreeing to our <span>Terms and Services</span>
 
@@ -47,5 +55,6 @@
 
         </div>
     </main>
+    <script src="./index.js"></script>
 </body>
 </html>
