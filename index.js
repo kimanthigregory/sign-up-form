@@ -35,13 +35,25 @@ function customError(key,input){
             console.log(par);
             break;
         case 1 :
-            alert("one")
+            var paragraph = input.closest(".input-container");
+            input.classList.add("show-error-icon");
+            var par =paragraph.querySelector("p");
+            par.classList.add("show-error-message");
+            console.log(par);
             break;
         case 2 :
-            alert("two")
+            var paragraph = input.closest(".input-container");
+            input.classList.add("show-error-icon");
+            var par =paragraph.querySelector("p");
+            par.classList.add("show-error-message");
+            console.log(par);
             break;
         case 3 :
-            alert("three")
+            var paragraph = input.closest(".input-container");
+            input.classList.add("show-error-icon");
+            var par =paragraph.querySelector("p");
+            par.classList.add("show-error-message");
+            console.log(par);
             break;
 
         default:
