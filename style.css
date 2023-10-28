@@ -10,11 +10,12 @@ body{
     color: #fff;
 }
 .terms span , .input-container p{
-    color: hsl(0, 100%, 74%);
+    color:hsl(0, 54%, 63%);
 }
 .terms{
     color: hsl(0, 4%, 85%);
     font-style: normal;
+    font-size: 13px;
     text-align: center;
     margin-bottom: 0;
 }
@@ -75,13 +76,17 @@ input{
 }
 .hide-error-message{
     display: none;
+    margin-bottom: 1.5rem;
 }
 .show-error-icon{
     background-image: url(./icons/icon-error.svg);
+    border: 2px solid   hsl(0, 54%, 63%);
     margin-bottom: 0;
 }
 .hide-error-icon{
     background-image: none;
+    margin-bottom: 1.5rem;
+    border: 1px solid  hsl(0, 4%, 85%);
 }
 
 input:focus{
@@ -95,7 +100,7 @@ input[type="submit"]{
     border-bottom: 4px solid rgba(15, 77, 50, 0.144);
     color: #fff;
     background-image: none;
-
+    margin: 0;
 }
 /* layout */
 main{
