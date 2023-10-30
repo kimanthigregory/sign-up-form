@@ -1,4 +1,4 @@
-const errorMessage = document.querySelector("#email-input p");
+const errorMessage = document.querySelector(".email-error");
 const inputBox = document.querySelectorAll(".input-field");
 const inputArea = document.querySelectorAll(".input-field");
 const submitButton = document.querySelector("#submitt");
@@ -8,7 +8,7 @@ const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+
 function inputValidation(){
     
 }
-inputBox.forEach(function(input,index) {
+inputArea.forEach(function(input,index) {
     
     input.addEventListener("input", ()=>{
         const checkInputField = input.value.trim() === "";
@@ -32,27 +32,20 @@ submitButton.addEventListener("click", (event)=>{
     event.preventDefault();
     let index =0
     var validated= true;
+
     inputBox.forEach(function(input,index) {
         const checkInputField = input.value.trim() === "";
         if (checkInputField){
-            // console.log(input);
             customError(index,input)
             validated=false;
         }
-        else{
-      
-            input.classList.add("hide-error-icon");
-            var paragraph = input.closest(".input-container");
-            var par =paragraph.querySelector("p");
-            par.classList.add("hide-error-message");
-           
-
-        }
+       
         index++;
        
         
     });
-    if(validated ){
+   
+    if(validated){
         document.querySelector("form").submit();
       
     }
@@ -60,69 +53,51 @@ submitButton.addEventListener("click", (event)=>{
     
  
 })
-emailInput.addEventListener("input", (input,index)=>{
-    const emailValid = regex.test(emailInput.value);
+emailInput.addEventListener("input", (index,input)=>{
+    const emailValid = emailInput.value.trim() === "" ||regex.test(emailInput.value) ;
+
     if (emailValid){
-       emailInput.classList.add("show-error-icon");
-       errorMessage.classList.add("show-error-message");
+        emailInput.classList.remove("show-error-icon");
+        errorMessage.classList.remove("show-error-message");
+       
         
     }
     else{
-        emailInput.classList.add("hide-error-icon");
-        // errorMessage.classList.add("hide-error-message");
-         
+        emailInput.classList.add("show-error-icon");
+        errorMessage.classList.add("show-error-message");
+        
     }
+    
 })
+function validationError (index,input){
+    var paragraph = input.closest(".input-container");
+    input.classList.add("show-error-icon");
+    var par =paragraph.querySelector("p");
+    par.classList.add("show-error-message");
+    console.log(par);
+    input.classList.remove("hide-error-icon");
+    var paragraph = input.closest(".input-container");
+    var par =paragraph.querySelector("p");
+    par.classList.remove("hide-error-message");
+}
 function customError(key,input){
     switch (key) {
         case 0 :
-            var paragraph = input.closest(".input-container");
-            input.classList.add("show-error-icon");
-            var par =paragraph.querySelector("p");
-            par.classList.add("show-error-message");
-            console.log(par);
-            input.classList.remove("hide-error-icon");
-            var paragraph = input.closest(".input-container");
-            var par =paragraph.querySelector("p");
-            par.classList.remove("hide-error-message");
+            validationError(key,input);
             
             break;
         case 1 :
-            var paragraph = input.closest(".input-container");
-            input.classList.add("show-error-icon");
-            var par =paragraph.querySelector("p");
-            par.classList.add("show-error-message");
-            console.log(par);
-            input.classList.remove("hide-error-icon");
-            var paragraph = input.closest(".input-container");
-            var par =paragraph.querySelector("p");
-            par.classList.remove("hide-error-message");
+            validationError(key,input);
             break;
         case 2 :
-            var paragraph = input.closest(".input-container");
-            input.classList.add("show-error-icon");
-            var par =paragraph.querySelector("p");
-            par.classList.add("show-error-message");
-            console.log(par);
-            input.classList.remove("hide-error-icon");
-            var paragraph = input.closest(".input-container");
-            var par =paragraph.querySelector("p");
-            par.classList.remove("hide-error-message");
+            validationError(key,input);       
             break;
         case 3 :
-            var paragraph = input.closest(".input-container");
-            input.classList.add("show-error-icon");
-            var par =paragraph.querySelector("p");
-            par.classList.add("show-error-message");
-            console.log(par);
-            input.classList.remove("hide-error-icon");
-            var paragraph = input.closest(".input-container");
-            var par =paragraph.querySelector("p");
-            par.classList.remove("hide-error-message");
+            validationError(key,input);
             break;
 
         default:
-            alert("error message");
+            alert("oops an error occured");
             break;
     }
 }
