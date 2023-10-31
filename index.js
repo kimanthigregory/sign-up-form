@@ -77,6 +77,7 @@ emailInput.addEventListener("input", (index,input)=>{
     else{
         emailInput.classList.add("show-error-icon");
         errorMessage.classList.add("show-error-message");
+      
         
     }
     
@@ -102,7 +103,10 @@ function customError(key,input){
             validationError(key,input);
             break;
         case 2 :
-            validationError(key,input);       
+            validationError(key,input); 
+            emailInput.setAttribute("placeholder","example@gmail/com").classList.add("input[type=email]::placeholder");
+         
+      
             break;
         case 3 :
             validationError(key,input);
