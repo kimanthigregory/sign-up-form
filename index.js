@@ -32,7 +32,19 @@ submitButton.addEventListener("click", (event)=>{
     event.preventDefault();
     let index =0
     var validated= true;
+    const emailValid = emailInput.value.trim() === "" ||regex.test(emailInput.value) ;
 
+    if (!emailValid){
+        emailInput.classList.remove("show-error-icon");
+        errorMessage.classList.remove("show-error-message");
+        validated= false;
+        
+    }
+    else{
+        emailInput.classList.add("show-error-icon");
+        errorMessage.classList.add("show-error-message");
+        
+    }
     inputBox.forEach(function(input,index) {
         const checkInputField = input.value.trim() === "";
         if (checkInputField){
@@ -59,7 +71,7 @@ emailInput.addEventListener("input", (index,input)=>{
     if (emailValid){
         emailInput.classList.remove("show-error-icon");
         errorMessage.classList.remove("show-error-message");
-       
+        validated= false;
         
     }
     else{
