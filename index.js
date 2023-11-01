@@ -13,11 +13,9 @@ inputArea.forEach(function(input,index) {
     input.addEventListener("input", ()=>{
         const checkInputField = input.value.trim() === "";
         if (checkInputField){
-            console.log(index);
             customError(index,input)
         }
         else{
-            console.log(index);
             input.classList.add("hide-error-icon");
             var paragraph = input.closest(".input-container");
             var par =paragraph.querySelector("p");
@@ -87,7 +85,6 @@ function validationError (index,input){
     input.classList.add("show-error-icon");
     var par =paragraph.querySelector("p");
     par.classList.add("show-error-message");
-    console.log(par);
     input.classList.remove("hide-error-icon");
     var paragraph = input.closest(".input-container");
     var par =paragraph.querySelector("p");
@@ -104,7 +101,7 @@ function customError(key,input){
             break;
         case 2 :
             validationError(key,input); 
-            emailInput.setAttribute("placeholder","example@gmail/com").classList.add("input[type=email]::placeholder");
+            emailInput.setAttribute("placeholder","example@gmail/com");
          
       
             break;
